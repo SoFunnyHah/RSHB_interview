@@ -5,6 +5,8 @@ interface AppState {
   items: Item[]
   isLoading: boolean
   loadData: () => void
+  getChildrenByParentId: (parentId: number | null) => Item[]
+  getItemById: (id: number | null) => Item | undefined
 }
 
 const rawData: RawItem[] = [
@@ -17,7 +19,7 @@ const rawData: RawItem[] = [
   { id: 7, type: "dir", parentId: 6, name: "Глубокое вложение", isFavorite: false },
 ]
 
-export const useAppStore = create<AppState>((set) => ({
+export const useAppStore = create<AppState>((set, get) => ({
   items: [],
   isLoading: false,
 
@@ -44,5 +46,14 @@ loadData: () => {
 
     set({ items: Array.from(itemMap.values()), isLoading: false })
   }, 1000)
-}
+},
+
+  getChildrenByParentId: (parentId) => {
+    return get().items.filter(item => item.parentId === parentId)
+  },
+
+  getItemById: (id) => {
+    if(!id && id !== 0) return
+    return get().items.find(i => i.id === id)
+  }
 }))
