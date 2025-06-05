@@ -1,8 +1,15 @@
-function App() {
+import React from 'react'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import FileExplorer from './pages/FileExplorer'
+
+const App: React.FC = () => {
   return (
-    <div>
-      <h1>File Manager App</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/folder/1" replace />} />
+        <Route path="/folder/:id" element={<FileExplorer />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
