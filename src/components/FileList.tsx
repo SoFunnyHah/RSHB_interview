@@ -5,6 +5,7 @@ import { useCurrrentFolderId } from '../hooks/folderId'
 import { useAppStore } from '../store/useAppStore'
 import { FcFolder } from "react-icons/fc";
 import { FcFile } from "react-icons/fc";
+import ItemActions from './ItemActions'
 
 const FileList: React.FC = () => {
   const navigate = useNavigate()
@@ -31,7 +32,7 @@ return (
                 <FcFile /> {item.name} {item.isImage() && '(img)'}
               </span>
             )}
-            Набор кнопок
+            <ItemActions item={item} />
           </li>
         ))}
     </ul>

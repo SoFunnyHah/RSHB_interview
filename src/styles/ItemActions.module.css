@@ -1,0 +1,18 @@
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.actions button:hover {
+  color: #222;
+}
