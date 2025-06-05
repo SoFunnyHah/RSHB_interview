@@ -4,12 +4,14 @@ import { BsThreeDotsVertical } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 import styles from '../styles/ItemActions.module.css'
 import { Item } from '../types/Item'
+import { useAppStore } from '../store/useAppStore'
 
 interface Props {
   item: Item
 }
 
 const ItemActions: React.FC<Props> = ({ item }) => {
+  const store = useAppStore()
   const navigate = useNavigate()
 
   const goToPlaceholder = () => navigate('/404')
@@ -17,7 +19,7 @@ const ItemActions: React.FC<Props> = ({ item }) => {
   return (
     <div className={styles.actions}>
       <button
-        onClick={() => null}
+        onClick={() => store.toggleFavorite(item.id)}
         title={item.isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
       >
         {item.isFavorite

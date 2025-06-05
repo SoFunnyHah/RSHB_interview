@@ -6,6 +6,7 @@ interface AppState {
   isLoading: boolean
   loadData: () => void
   getChildrenByParentId: (parentId: number | null) => Item[]
+  toggleFavorite: (id: number) => void
   getItemById: (id: number | null) => Item | undefined
 }
 
@@ -50,6 +51,16 @@ loadData: () => {
 
   getChildrenByParentId: (parentId) => {
     return get().items.filter(item => item.parentId === parentId)
+  },
+
+  toggleFavorite: (id) => {
+    const updated = get().items.map(item =>
+      item.id === id ? new Item({ ...item, isFavorite: !item.isFavorite }) : item
+    )
+    set({ items: updated })
+
+    // имитация запроса
+    console.log(`[API] Изменено избранное у элемента ${id}`)
   },
 
   getItemById: (id) => {
