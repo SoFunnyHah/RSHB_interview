@@ -1,0 +1,34 @@
+.breadcrumbs {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.breadcrumb {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-decoration: none;
+}
+
+.breadcrumb:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbActive {
+  font-weight: 500;
+  color: #555;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.separator {
+  margin: 0 6px;
+  color: #999;
+}

@@ -7,6 +7,7 @@ import styles from '../styles/FileExplorer.module.css'
 import FileToolBar from '../components/FileToolBar'
 import { useNavigate } from 'react-router-dom'
 import { FaLongArrowAltUp } from "react-icons/fa";
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const FileExplorer: React.FC = () => {
   const store = useAppStore()
@@ -28,7 +29,6 @@ const FileExplorer: React.FC = () => {
     </div>
   )
   }
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -47,6 +47,7 @@ const FileExplorer: React.FC = () => {
         </div>
         <FileToolBar />
       </div>
+      <Breadcrumbs />
     {items.length === 0 ? (
         null
     ) : (
