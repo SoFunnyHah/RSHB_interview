@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import styles from '../styles/FileExplorer.module.css'
 import FileList from '../components/FileList'
 import Loader from '../components/Loader'
+import { useCurrrentFolderId } from '../hooks/folderId'
 import { useAppStore } from '../store/useAppStore'
-import { useParams } from 'react-router-dom'
+import styles from '../styles/FileExplorer.module.css'
 
 
 const FileExplorer: React.FC = () => {
   const store = useAppStore()
-  const {id} = useParams()
-  const currentId = parseInt(id ?? "", 10)  
+const currentId = useCurrrentFolderId()
   const currentItem = store.getItemById(currentId)
   const items = store.getChildrenByParentId(currentId)
 
