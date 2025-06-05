@@ -8,6 +8,7 @@ import FileToolBar from '../components/FileToolBar'
 import { useNavigate } from 'react-router-dom'
 import { FaLongArrowAltUp } from "react-icons/fa";
 import Breadcrumbs from '../components/Breadcrumbs'
+import EmptyStateUFO from '../components/EmptyStateUFO'
 
 const FileExplorer: React.FC = () => {
   const store = useAppStore()
@@ -49,7 +50,7 @@ const FileExplorer: React.FC = () => {
       </div>
       <Breadcrumbs />
     {items.length === 0 ? (
-        null
+        <EmptyStateUFO />
     ) : (
         <FileList />
     )}
