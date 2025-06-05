@@ -3,6 +3,7 @@ import styles from '../styles/FileToolBar.module.css'
 import { FaFolderPlus } from "react-icons/fa";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import { fontAutoColor } from '../utils/fontAutoColor'
 
 const buttons = [
   {
@@ -38,6 +39,7 @@ const FileToolBar: React.FC = () => {
         {buttons.map((btn, index) => {
         const Icon = btn.icon
         const iconSize = btn.iconSize
+        const textColor = fontAutoColor(btn.color)
 
         return (
             <button
@@ -46,7 +48,7 @@ const FileToolBar: React.FC = () => {
             className={styles.actionButton}
             style={{
                 backgroundColor: btn.color,
-                color: 'black',
+                color: textColor,
                 fontWeight: 500,
             }}
             title={btn.label}
